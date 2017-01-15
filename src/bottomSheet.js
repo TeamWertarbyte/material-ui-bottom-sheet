@@ -12,7 +12,7 @@ const styles = {
     backgroundColor: 'rgba(0,0,0,0.5)',
     transition: 'opacity 400ms cubic-bezier(0.4, 0, 0.2, 1)'
   },
-  content: {
+  body: {
     width: '100%',
     maxHeight: 600,
     position: 'fixed',
@@ -38,15 +38,22 @@ export class BottomSheet extends Component {
       >
         <Paper
           style={{
-            ...styles.content,
-            ...this.props.contentStyle
+            ...styles.body,
+            ...this.props.bodyStyle
           }}
           rounded={false}
         >
           {React.cloneElement(this.props.action, {
-            style: { ...this.props.action.style, marginRight: 16, marginTop: -28, float: 'right', ...this.props.actionStyle }
+            style: {
+              ...this.props.action.style,
+              marginRight: 16,
+              marginTop: -28,
+              float: 'right', ...this.props.actionStyle
+            }
           })}
-          {this.props.children}
+          <div style={this.props.contentStyle}>
+            {this.props.children}
+          </div>
         </Paper>
       </div>
     )
@@ -62,6 +69,7 @@ BottomSheet.defaultProps = {
 BottomSheet.propTypes = {
   action: PropTypes.object,
   actionStyle: PropTypes.object,
+  bodyStyle: PropTypes.object,
   contentStyle: PropTypes.object,
   onRequestClose: PropTypes.func.isRequired,
   open: PropTypes.bool,

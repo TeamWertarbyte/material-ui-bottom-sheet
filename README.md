@@ -47,6 +47,7 @@ render() {
 |----------------|------------|------------|--------------------------------
 |action          | `node`     |            | Adds an action element at the top right corner.
 |actionStyle     | `object`   |            | Override the inline-styles of the action element.
+|bodyStyle       | `object`   |            | Override the inline-styles of the body container.
 |contentStyle    | `object`   |            | Override the inline-styles of the content container.
 |onRequestClose  | `function` | `noop`     | Fired when the gray background of the popup is pressed when it is open.
 |open            | `bool`     | `false`    | Controls whether the bottom sheet is opened or not.
