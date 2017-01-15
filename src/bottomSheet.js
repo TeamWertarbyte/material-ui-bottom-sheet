@@ -43,6 +43,9 @@ export class BottomSheet extends Component {
           }}
           rounded={false}
         >
+          {React.cloneElement(this.props.action, {
+            style: { ...this.props.action.style, marginRight: 16, marginTop: -28, float: 'right', ...this.props.actionStyle }
+          })}
           {this.props.children}
         </Paper>
       </div>
@@ -51,11 +54,14 @@ export class BottomSheet extends Component {
 }
 
 BottomSheet.defaultProps = {
-  onRequestClose: () => {},
+  onRequestClose: () => {
+  },
   open: false
 }
 
 BottomSheet.propTypes = {
+  action: PropTypes.object,
+  actionStyle: PropTypes.object,
   contentStyle: PropTypes.object,
   onRequestClose: PropTypes.func.isRequired,
   open: PropTypes.bool,
