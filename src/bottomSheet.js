@@ -36,7 +36,10 @@ export class BottomSheet extends Component {
         }}
         onTouchTap={this.props.onRequestClose}
       >
-        <Paper style={styles.content}>
+        <Paper
+          style={styles.content}
+          rounded={false}
+        >
           {this.props.children}
         </Paper>
       </div>
