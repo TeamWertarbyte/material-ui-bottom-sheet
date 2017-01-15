@@ -43,14 +43,15 @@ export class BottomSheet extends Component {
           }}
           rounded={false}
         >
-          {React.cloneElement(this.props.action, {
-            style: {
-              ...this.props.action.style,
-              marginRight: 16,
-              marginTop: -28,
-              float: 'right', ...this.props.actionStyle
-            }
-          })}
+          {this.props.action ? React.cloneElement(this.props.action, {
+              style: {
+                ...this.props.action.style,
+                marginRight: 16,
+                marginTop: -28,
+                float: 'right', ...this.props.actionStyle
+              }
+            }) : null
+          }
           <div style={this.props.contentStyle}>
             {this.props.children}
           </div>
