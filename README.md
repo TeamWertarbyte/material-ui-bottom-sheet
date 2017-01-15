@@ -1,6 +1,7 @@
 # Material Bottom Sheet [![Build Status](https://travis-ci.org/TeamWertarbyte/material-ui-bottom-sheet.svg?branch=master)](https://travis-ci.org/TeamWertarbyte/material-ui-bottom-sheet)
 
 Bottom sheets slide up from the bottom of the screen to reveal more content. See the [material specs](https://material.io/guidelines/components/bottom-sheets.html#)
+
 There are two variants:
 * Modal bottom sheets
 * Persistent bottom sheets
@@ -13,6 +14,41 @@ See this component in [action](https://teamwertarbyte.github.io/material-ui-bott
 ```shell
 npm i --save material-ui-bottom-sheet
 ```
+
+## Usage
+```js
+import { BottomSheet } from 'material-ui-bottom-sheet'
+import { List, ListItem, Subheader } from 'material-ui'
+
+// ...
+render() {
+  return(
+    <div>
+        <BottomSheet
+            onRequestClose={() => console.log('close')}
+            open
+        >
+            <Subheader>Open in</Subheader>
+            <List>
+                <ListItem primaryText="Google Plus" />
+                <ListItem primaryText="Facebook" />
+                <ListItem primaryText="Inbox" />
+                <ListItem primaryText="TextEditor" />
+            </List>
+        </BottomSheet>
+    </div>
+  )
+}
+```
+
+### Material Bottom Sheet Properties
+
+|Name            |Type        |Default     |Description
+|----------------|------------|------------|--------------------------------
+|contentStyle    | `object`   |            | Override the inline-styles of the content container.
+|onRequestClose  | `function` | `noop`     | Fired when the gray background of the popup is pressed when it is open.
+|open            | `bool`     | `false`    | Controls whether the bottom sheet is opened or not.
+|style           | `object`   |            | Override the inline-styles of the root element.
 
 ## License
 
