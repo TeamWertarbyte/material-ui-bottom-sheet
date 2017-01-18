@@ -20,7 +20,7 @@ const styles = {
   }
 }
 
-export class BottomSheet extends Component {
+export default class BottomSheet extends Component {
   constructor(props) {
     super(props)
   }
