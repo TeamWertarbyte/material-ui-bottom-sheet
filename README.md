@@ -50,8 +50,11 @@ render() {
 |bodyStyle       | `object`   |            | Override the inline-styles of the body container.
 |contentStyle    | `object`   |            | Override the inline-styles of the content container.
 |onRequestClose  | `function` | `noop`     | Fired when the gray background of the popup is pressed when it is open.
-|open            | `bool`     | `false`    | Controls whether the bottom sheet is opened or not.
+|open*            | `bool`     | `false`    | Controls whether the bottom sheet is opened or not.
 |style           | `object`   |            | Override the inline-styles of the root element.
+
+
+\* required property
 
 ## License
 

@@ -63,8 +63,7 @@ export default class BottomSheet extends Component {
 
 BottomSheet.defaultProps = {
   onRequestClose: () => {
-  },
-  open: false
+  }
 }
 
 BottomSheet.propTypes = {
@@ -73,6 +72,6 @@ BottomSheet.propTypes = {
   bodyStyle: PropTypes.object,
   contentStyle: PropTypes.object,
   onRequestClose: PropTypes.func.isRequired,
-  open: PropTypes.bool,
+  open: PropTypes.bool.isRequired,
   style: PropTypes.object
 }
