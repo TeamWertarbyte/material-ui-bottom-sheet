@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { Paper } from 'material-ui'
+import { Scrollbars } from 'react-custom-scrollbars'
 
 const styles = {
   root: {
@@ -10,19 +11,18 @@ const styles = {
     left: 0,
     top: 0,
     backgroundColor: 'rgba(0,0,0,0.2)',
-    transition: 'opacity 400ms cubic-bezier(0.4, 0, 0.2, 1)',
-    overflowY: 'scroll'
+    transition: 'opacity 400ms cubic-bezier(0.4, 0, 0.2, 1)'
   },
   wrapper: {
     width: '100%',
     minHeight: '100%',
-    marginTop: '50vh',
-    overflowY: 'scroll'
+    marginTop: '50vh'
   },
   body: {
     width: '100%',
     padding: 16,
-    minHeight: '100vh'
+    minHeight: '100vh',
+    marginTop: 30
   }
 }
 
@@ -30,60 +30,44 @@ export default class ExpandableBottomSheet extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      scrollTop: 0
+      outerTop: 0
     }
   }
 
-  componentDidMount() {
-    this.setState({ scrollTop: this.outer.getBoundingClientRect().top })
-  }
-
-  onOuterScroll(e) {
-    const scrollTop = this.outer.getBoundingClientRect().top
-    const oldScrollTop = this.state.scrollTop
-    if (scrollTop <= 0 && oldScrollTop > 0) {
-      if (this.props.onTopReached) {
-        this.props.onTopReached()
-      }
-    } else {
-      if (this.state.scrollTop < 1) {
-        if (this.props.onTopLeft) {
-          this.props.onTopLeft()
+  onOuterScroll(values) {
+    if (this.state.outerTop !== values.top) {
+      this.setState({ outerTop: values.top }, () => {
+        if (values.top === 1 && this.props.onTopReached) {
+          this.props.onTopReached()
         }
-      }
+      })
     }
-    this.setState({
-      scrollTop
-    })
   }
 
   render() {
     return (
-      <div
+      <Scrollbars
+        autoHide
+        onUpdate={(values) => this.onOuterScroll(values)}
         style={{
           ...styles.root,
           ...this.props.style,
           pointerEvents: this.props.open ? null : 'none',
-          opacity: this.props.open ? '1' : '0',
-          overflowY: 'scroll'
+          opacity: this.props.open ? '1' : '0'
         }}
-        onScroll={(e) => this.onOuterScroll(e)}
         onTouchTap={this.props.onRequestClose}
       >
-        <div
+        <Scrollbars
+          autoHide
           style={{
-            ...styles.wrapper,
-            overflowY: 'hidden'
-
+            ...styles.wrapper
           }}
-          ref={(outer) => this.outer = outer}
         >
           <Paper
             zDepth={5}
             style={{
               ...styles.body,
-              ...this.props.bodyStyle,
-              marginTop: 30
+              ...this.props.bodyStyle
             }}
             rounded={false}
           >
@@ -94,7 +78,7 @@ export default class ExpandableBottomSheet extends Component {
                   marginTop: -44,
                   position: 'absolute',
                   transition: 'all 400ms cubic-bezier(0.4, 0, 0.2, 1)',
-                  transform: this.state.scrollTop <= 0 ? 'scale(0, 0)' : 'scale(1, 1)'
+                  transform: this.state.outerTop < 1 ? 'scale(1, 1)' : 'scale(0, 0)'
                 }
               }) : null
             }
@@ -102,8 +86,8 @@ export default class ExpandableBottomSheet extends Component {
               {this.props.children}
             </div>
           </Paper>
-        </div>
-      </div>
+        </Scrollbars>
+      </Scrollbars>
     )
   }
 }

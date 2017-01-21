@@ -98,6 +98,7 @@ storiesOf('Mobile ExpandableBottomSheet')
           </FloatingActionButton>
         }
         onRequestClose={action('onRequestClose')}
+        onTopReached={action('onTopReached')}
         open
       >
         <h1 style={{ marginLeft: 72, marginTop: 40 }}>Dandelion Chocolate</h1>

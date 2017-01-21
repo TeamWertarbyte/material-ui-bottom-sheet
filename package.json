@@ -35,11 +35,13 @@
     "babel-preset-stage-0": "^6.5.0",
     "material-ui": "^0.16.6",
     "react": "^15.4.2",
+    "react-custom-scrollbars": "^4.0.1",
     "react-dom": "^15.4.2",
     "react-tap-event-plugin": "^2.0.1"
   },
   "peerDependencies": {
     "material-ui": "^0.16.6",
-    "react": "^15.4.2"
+    "react": "^15.4.2",
+    "react-custom-scrollbars": "^4.0.1"
   }
 }
