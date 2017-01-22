@@ -33,7 +33,6 @@ export default class ExpandableBottomSheet extends Component {
 
   onOuterScroll(values) {
     if (this.state.outerTop !== values.top) {
-      console.log(values.top)
       this.setState({ outerTop: values.top }, () => {
         if (values.top >= 0.99 && this.props.onTopReached) {
           this.props.onTopReached()
