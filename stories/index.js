@@ -17,6 +17,33 @@ const styles = {
 }
 
 storiesOf('Mobile BottomSheet', module)
+  .add('Normal', () => themed(
+    <div>
+      <AppBar/>
+      <div style={{ padding: 24 }}>
+        <Paper style={styles.card}>
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
+          dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+          clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+          consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
+          sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
+          takimata sanctus est Lorem ipsum dolor sit amet.
+        </Paper>
+      </div>
+      <BottomSheet
+        onRequestClose={action('onRequestClose')}
+        open
+      >
+        <Subheader>Open in</Subheader>
+        <List>
+          <ListItem primaryText="Google Plus"/>
+          <ListItem primaryText="Facebook"/>
+          <ListItem primaryText="Inbox"/>
+          <ListItem primaryText="TextEditor"/>
+        </List>
+      </BottomSheet>
+    </div>
+  ))
   .add('Action', () => themed(
     <div>
       <AppBar/>
@@ -49,6 +76,8 @@ storiesOf('Mobile BottomSheet', module)
       </BottomSheet>
     </div>
   ))
+
+storiesOf('Mobile ExpandableBottomSheet')
   .add('Normal', () => themed(
     <div>
       <AppBar/>
@@ -62,8 +91,9 @@ storiesOf('Mobile BottomSheet', module)
           takimata sanctus est Lorem ipsum dolor sit amet.
         </Paper>
       </div>
-      <BottomSheet
+      <ExpandableBottomSheet
         onRequestClose={action('onRequestClose')}
+        onTopReached={action('onTopReached')}
         open
       >
         <Subheader>Open in</Subheader>
@@ -72,13 +102,35 @@ storiesOf('Mobile BottomSheet', module)
           <ListItem primaryText="Facebook"/>
           <ListItem primaryText="Inbox"/>
           <ListItem primaryText="TextEditor"/>
+          <ListItem primaryText="Google Plus"/>
+          <ListItem primaryText="Facebook"/>
+          <ListItem primaryText="Inbox"/>
+          <ListItem primaryText="TextEditor"/>
+          <ListItem primaryText="Google Plus"/>
+          <ListItem primaryText="Facebook"/>
+          <ListItem primaryText="Inbox"/>
+          <ListItem primaryText="TextEditor"/>
+          <ListItem primaryText="Google Plus"/>
+          <ListItem primaryText="Facebook"/>
+          <ListItem primaryText="Inbox"/>
+          <ListItem primaryText="TextEditor"/>
+          <ListItem primaryText="Google Plus"/>
+          <ListItem primaryText="Facebook"/>
+          <ListItem primaryText="Inbox"/>
+          <ListItem primaryText="TextEditor"/>
+          <ListItem primaryText="Google Plus"/>
+          <ListItem primaryText="Facebook"/>
+          <ListItem primaryText="Inbox"/>
+          <ListItem primaryText="TextEditor"/>
+          <ListItem primaryText="Google Plus"/>
+          <ListItem primaryText="Facebook"/>
+          <ListItem primaryText="Inbox"/>
+          <ListItem primaryText="TextEditor"/>
         </List>
-      </BottomSheet>
+      </ExpandableBottomSheet>
     </div>
   ))
-
-storiesOf('Mobile ExpandableBottomSheet')
-  .add('Expandable', () => themed(
+  .add('Action', () => themed(
     <div>
       <AppBar/>
       <div style={{ padding: 24 }}>
@@ -104,6 +156,30 @@ storiesOf('Mobile ExpandableBottomSheet')
         <h1 style={{ marginLeft: 72, marginTop: 40 }}>Dandelion Chocolate</h1>
         <Divider inset/>
         <List>
+          <ListItem primaryText="740 Valencia St,, San Francisco, CA" leftIcon={<Place/>}/>
+          <ListItem primaryText="(415) 349-0942" leftIcon={<LocalPhone/>}/>
+          <ListItem primaryText="Wed, 10 AM - 9 PM" leftIcon={<AccessTime/>}/>
+          <ListItem primaryText="740 Valencia St,, San Francisco, CA" leftIcon={<Place/>}/>
+          <ListItem primaryText="(415) 349-0942" leftIcon={<LocalPhone/>}/>
+          <ListItem primaryText="Wed, 10 AM - 9 PM" leftIcon={<AccessTime/>}/>
+          <ListItem primaryText="740 Valencia St,, San Francisco, CA" leftIcon={<Place/>}/>
+          <ListItem primaryText="(415) 349-0942" leftIcon={<LocalPhone/>}/>
+          <ListItem primaryText="Wed, 10 AM - 9 PM" leftIcon={<AccessTime/>}/>
+          <ListItem primaryText="740 Valencia St,, San Francisco, CA" leftIcon={<Place/>}/>
+          <ListItem primaryText="(415) 349-0942" leftIcon={<LocalPhone/>}/>
+          <ListItem primaryText="Wed, 10 AM - 9 PM" leftIcon={<AccessTime/>}/>
+          <ListItem primaryText="740 Valencia St,, San Francisco, CA" leftIcon={<Place/>}/>
+          <ListItem primaryText="(415) 349-0942" leftIcon={<LocalPhone/>}/>
+          <ListItem primaryText="Wed, 10 AM - 9 PM" leftIcon={<AccessTime/>}/>
+          <ListItem primaryText="740 Valencia St,, San Francisco, CA" leftIcon={<Place/>}/>
+          <ListItem primaryText="(415) 349-0942" leftIcon={<LocalPhone/>}/>
+          <ListItem primaryText="Wed, 10 AM - 9 PM" leftIcon={<AccessTime/>}/>
+          <ListItem primaryText="740 Valencia St,, San Francisco, CA" leftIcon={<Place/>}/>
+          <ListItem primaryText="(415) 349-0942" leftIcon={<LocalPhone/>}/>
+          <ListItem primaryText="Wed, 10 AM - 9 PM" leftIcon={<AccessTime/>}/>
+          <ListItem primaryText="740 Valencia St,, San Francisco, CA" leftIcon={<Place/>}/>
+          <ListItem primaryText="(415) 349-0942" leftIcon={<LocalPhone/>}/>
+          <ListItem primaryText="Wed, 10 AM - 9 PM" leftIcon={<AccessTime/>}/>
           <ListItem primaryText="740 Valencia St,, San Francisco, CA" leftIcon={<Place/>}/>
           <ListItem primaryText="(415) 349-0942" leftIcon={<LocalPhone/>}/>
           <ListItem primaryText="Wed, 10 AM - 9 PM" leftIcon={<AccessTime/>}/>

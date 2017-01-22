@@ -13,16 +13,13 @@ const styles = {
     backgroundColor: 'rgba(0,0,0,0.2)',
     transition: 'opacity 400ms cubic-bezier(0.4, 0, 0.2, 1)'
   },
-  wrapper: {
-    width: '100%',
-    minHeight: '100%',
-    marginTop: '50vh'
-  },
   body: {
     width: '100%',
-    padding: 16,
-    minHeight: '100vh',
-    marginTop: 30
+    marginTop: '50vh',
+    height: '100vh'
+  },
+  content: {
+    height: '100%'
   }
 }
 
@@ -57,36 +54,45 @@ export default class ExpandableBottomSheet extends Component {
         }}
         onTouchTap={this.props.onRequestClose}
       >
-        <Scrollbars
-          autoHide
+        <Paper
+          zDepth={5}
           style={{
-            ...styles.wrapper
+            ...styles.body,
+            ...this.props.bodyStyle
           }}
+          rounded={false}
         >
-          <Paper
-            zDepth={5}
-            style={{
-              ...styles.body,
-              ...this.props.bodyStyle
-            }}
-            rounded={false}
-          >
-            {this.props.action ? React.cloneElement(this.props.action, {
-                style: {
-                  ...this.props.action.props.style,
-                  right: 16,
-                  marginTop: -44,
-                  position: 'absolute',
-                  transition: 'all 400ms cubic-bezier(0.4, 0, 0.2, 1)',
-                  transform: this.state.outerTop < 1 ? 'scale(1, 1)' : 'scale(0, 0)'
-                }
-              }) : null
-            }
-            <div style={this.props.contentStyle}>
+          {this.props.action ? React.cloneElement(this.props.action, {
+              style: {
+                ...this.props.action.props.style,
+                right: 16,
+                marginTop: -28,
+                position: 'absolute',
+                transition: 'all 400ms cubic-bezier(0.4, 0, 0.2, 1)',
+                transform: this.state.outerTop < 1 ? 'scale(1, 1)' : 'scale(0, 0)'
+              }
+            }) : null
+          }
+          {this.state.outerTop < 1 ?
+            <div
+              style={{
+                ...styles.content,
+                ...this.props.contentStyle,
+                overflow: 'hidden'
+              }}
+            >
               {this.props.children}
-            </div>
-          </Paper>
-        </Scrollbars>
+            </div> :
+            <Scrollbars
+              style={{
+                ...styles.content,
+                ...this.props.contentStyle
+              }}
+            >
+              {this.props.children}
+            </Scrollbars>
+          }
+        </Paper>
       </Scrollbars>
     )
   }
