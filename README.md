@@ -12,7 +12,7 @@ See this component in [action](https://teamwertarbyte.github.io/material-ui-bott
 
 ## Installation
 ```shell
-npm i --save material-ui-bottom-sheet
+npm i --save react-custom-scrollbars material-ui-bottom-sheet
 ```
 
 ## Usage
