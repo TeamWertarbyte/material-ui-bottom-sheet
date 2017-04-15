@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Paper } from 'material-ui'
 import { Scrollbars } from 'react-custom-scrollbars'
 
@@ -24,16 +25,16 @@ const styles = {
 }
 
 export default class ExpandableBottomSheet extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       outerTop: 0
     }
   }
 
-  onOuterScroll(values) {
+  onOuterScroll (values) {
     if (this.state.outerTop !== values.top) {
-      this.setState({ outerTop: values.top }, () => {
+      this.setState({outerTop: values.top}, () => {
         if (values.top >= 0.99 && this.props.onTopReached) {
           this.props.onTopReached()
         }
@@ -41,7 +42,7 @@ export default class ExpandableBottomSheet extends Component {
     }
   }
 
-  render() {
+  render () {
     return (
       <Scrollbars
         autoHide
@@ -63,34 +64,32 @@ export default class ExpandableBottomSheet extends Component {
           rounded={false}
         >
           {this.props.action ? React.cloneElement(this.props.action, {
-              style: {
-                ...this.props.action.props.style,
-                right: 16,
-                marginTop: -28,
-                position: 'absolute',
-                transition: 'all 400ms cubic-bezier(0.4, 0, 0.2, 1)',
-                transform: this.state.outerTop < 0.99 ? 'scale(1, 1)' : 'scale(0, 0)'
-              }
-            }) : null
+            style: {
+              ...this.props.action.props.style,
+              right: 16,
+              marginTop: -28,
+              position: 'absolute',
+              transition: 'all 400ms cubic-bezier(0.4, 0, 0.2, 1)',
+              transform: this.state.outerTop < 0.99 ? 'scale(1, 1)' : 'scale(0, 0)'
+            }
+          }) : null
           }
-          {this.state.outerTop < 0.99 ?
-            <div
-              style={{
-                ...styles.content,
-                ...this.props.contentStyle,
-                overflow: 'hidden'
-              }}
-            >
-              {this.props.children}
-            </div> :
-            <Scrollbars
-              style={{
-                ...styles.content,
-                ...this.props.contentStyle
-              }}
-            >
-              {this.props.children}
-            </Scrollbars>
+          {this.state.outerTop < 0.99 ? <div
+            style={{
+              ...styles.content,
+              ...this.props.contentStyle,
+              overflow: 'hidden'
+            }}
+          >
+            {this.props.children}
+          </div> : <Scrollbars
+            style={{
+              ...styles.content,
+              ...this.props.contentStyle
+            }}
+          >
+            {this.props.children}
+          </Scrollbars>
           }
         </Paper>
       </Scrollbars>

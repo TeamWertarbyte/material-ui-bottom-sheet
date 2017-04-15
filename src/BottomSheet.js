@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Paper } from 'material-ui'
 
 const styles = {
@@ -21,11 +22,11 @@ const styles = {
 }
 
 export default class BottomSheet extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
   }
 
-  render() {
+  render () {
     return (
       <div
         style={{
@@ -44,13 +45,13 @@ export default class BottomSheet extends Component {
           rounded={false}
         >
           {this.props.action ? React.cloneElement(this.props.action, {
-              style: {
-                ...this.props.action.style,
-                marginRight: 16,
-                marginTop: -28,
-                float: 'right', ...this.props.actionStyle
-              }
-            }) : null
+            style: {
+              ...this.props.action.style,
+              marginRight: 16,
+              marginTop: -28,
+              float: 'right', ...this.props.actionStyle
+            }
+          }) : null
           }
           <div style={this.props.contentStyle}>
             {this.props.children}
