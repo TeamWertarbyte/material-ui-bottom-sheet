@@ -1,4 +1,6 @@
-# Material Bottom Sheet [![Build Status](https://travis-ci.org/TeamWertarbyte/material-ui-bottom-sheet.svg?branch=master)](https://travis-ci.org/TeamWertarbyte/material-ui-bottom-sheet)
+# Material Bottom Sheet 
+[![Build Status](https://travis-ci.org/TeamWertarbyte/material-ui-bottom-sheet.svg?branch=master)](https://travis-ci.org/TeamWertarbyte/material-ui-bottom-sheet)
+[![Greenkeeper badge](https://badges.greenkeeper.io/TeamWertarbyte/material-ui-bottom-sheet.svg)](https://greenkeeper.io/)
 
 Bottom sheets slide up from the bottom of the screen to reveal more content. See the [material specs](https://material.io/guidelines/components/bottom-sheets.html#)
 
