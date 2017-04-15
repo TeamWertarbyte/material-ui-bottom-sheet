@@ -20,7 +20,7 @@ storiesOf('Mobile BottomSheet', module)
   .add('Normal', () => themed(
     <div>
       <AppBar/>
-      <div style={{ padding: 24 }}>
+      <div style={{padding: 24}}>
         <Paper style={styles.card}>
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
           dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
@@ -47,7 +47,7 @@ storiesOf('Mobile BottomSheet', module)
   .add('Action', () => themed(
     <div>
       <AppBar/>
-      <div style={{ padding: 24 }}>
+      <div style={{padding: 24}}>
         <Paper style={styles.card}>
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
           dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
@@ -66,7 +66,7 @@ storiesOf('Mobile BottomSheet', module)
         onRequestClose={action('onRequestClose')}
         open
       >
-        <h1 style={{ marginLeft: 72, marginTop: 40 }}>Dandelion Chocolate</h1>
+        <h1 style={{marginLeft: 72, marginTop: 40}}>Dandelion Chocolate</h1>
         <Divider inset/>
         <List>
           <ListItem primaryText="740 Valencia St,, San Francisco, CA" leftIcon={<Place/>}/>
@@ -81,7 +81,7 @@ storiesOf('Mobile ExpandableBottomSheet')
   .add('Normal', () => themed(
     <div>
       <AppBar/>
-      <div style={{ padding: 24 }}>
+      <div style={{padding: 24}}>
         <Paper style={styles.card}>
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
           dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
@@ -133,7 +133,7 @@ storiesOf('Mobile ExpandableBottomSheet')
   .add('Action', () => themed(
     <div>
       <AppBar/>
-      <div style={{ padding: 24 }}>
+      <div style={{padding: 24}}>
         <Paper style={styles.card}>
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
           dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
@@ -153,7 +153,7 @@ storiesOf('Mobile ExpandableBottomSheet')
         onTopReached={action('onTopReached')}
         open
       >
-        <h1 style={{ marginLeft: 72, marginTop: 40 }}>Dandelion Chocolate</h1>
+        <h1 style={{marginLeft: 72, marginTop: 40}}>Dandelion Chocolate</h1>
         <Divider inset/>
         <List>
           <ListItem primaryText="740 Valencia St,, San Francisco, CA" leftIcon={<Place/>}/>
