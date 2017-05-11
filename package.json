@@ -1,6 +1,6 @@
 {
   "name": "material-ui-bottom-sheet",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Material style bottom sheet",
   "main": "lib/index.js",
   "scripts": {
