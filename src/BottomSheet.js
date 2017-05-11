@@ -43,6 +43,7 @@ export default class BottomSheet extends Component {
             ...this.props.bodyStyle
           }}
           rounded={false}
+          onTouchTap={(e) => e.stopPropagation()}
         >
           {this.props.action ? React.cloneElement(this.props.action, {
             style: {
