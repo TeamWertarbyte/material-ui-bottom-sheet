@@ -1,2 +1,2 @@
-export { default as BottomSheet } from './BottomSheet'
-export { default as ExpandableBottomSheet } from './ExpandableBottomSheet'
+export { default as BottomSheet } from './components/BottomSheet/BottomSheet'
+export { default as ExpandableBottomSheet } from './components/BottomSheet/ExpandableBottomSheet'
