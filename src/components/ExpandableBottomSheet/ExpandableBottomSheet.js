@@ -116,6 +116,10 @@ export default class ExpandableBottomSheet extends Component {
   }
 }
 
+ExpandableBottomSheet.defaultProps = {
+  open: null
+}
+
 ExpandableBottomSheet.propTypes = {
   /** Adds an action element at the top right corner. */
   action: PropTypes.object,
@@ -130,7 +134,7 @@ ExpandableBottomSheet.propTypes = {
   /** Fired when the the top when scrolling is reached. */
   onTopReached: PropTypes.func,
   /** Controls whether the bottom sheet is opened or not. */
-  open: PropTypes.bool.isRequired,
+  open: PropTypes.bool,
   /** Shows the overlay or not. */
   overlay: PropTypes.bool,
   /** Override the inline-styles of the root element. */

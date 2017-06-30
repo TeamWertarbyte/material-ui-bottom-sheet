@@ -77,6 +77,10 @@ export default class BottomSheet extends Component {
   }
 }
 
+BottomSheet.defaultProps = {
+  open: null
+}
+
 BottomSheet.propTypes = {
   /** Adds an action element at the top right corner. */
   action: PropTypes.object,
@@ -89,7 +93,7 @@ BottomSheet.propTypes = {
   /** Fired when the the background is clicked. */
   onRequestClose: PropTypes.func.isRequired,
   /** Controls whether the bottom sheet is opened or not. */
-  open: PropTypes.bool.isRequired,
+  open: PropTypes.bool,
   /** Override the inline-styles of the root element. */
   style: PropTypes.object,
 }
