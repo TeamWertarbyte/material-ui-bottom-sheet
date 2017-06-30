@@ -31,9 +31,10 @@ export default class BottomSheet extends Component {
       },
       body: {
         width: '100%',
-        maxHeight: 600,
+        maxHeight: open ? 600 : 0,
         position: 'fixed',
-        bottom: 0
+        bottom: 0,
+        transition: 'max-height 400ms cubic-bezier(0.4, 0, 0.2, 1)'
       },
       action: {
         marginRight: 16,
