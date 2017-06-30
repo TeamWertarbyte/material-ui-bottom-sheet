@@ -3,27 +3,6 @@ import PropTypes from 'prop-types'
 import { Paper } from 'material-ui'
 import { Scrollbars } from 'react-custom-scrollbars'
 
-const styles = {
-  root: {
-    height: '100vh',
-    width: '100vw',
-    position: 'fixed',
-    zIndex: 1300,
-    left: 0,
-    top: 0,
-    backgroundColor: 'rgba(0,0,0,0.2)',
-    transition: 'opacity 400ms cubic-bezier(0.4, 0, 0.2, 1)'
-  },
-  body: {
-    width: '100%',
-    marginTop: '50vh',
-    height: '100vh'
-  },
-  content: {
-    height: '100%'
-  }
-}
-
 /**
  * Material design bottom sheet
  * @see [Bottom Sheet](https://material.io/guidelines/components/bottom-sheets.html)
@@ -46,16 +25,57 @@ export default class ExpandableBottomSheet extends Component {
     }
   }
 
+  getStyles () {
+    const {
+      open
+    } = this.props
+
+    const {
+      outerTop
+    } = this.state
+
+    return {
+      root: {
+        height: '100vh',
+        width: '100vw',
+        position: 'fixed',
+        zIndex: 1300,
+        left: 0,
+        top: 0,
+        backgroundColor: 'rgba(0,0,0,0.2)',
+        transition: 'opacity 400ms cubic-bezier(0.4, 0, 0.2, 1)',
+        pointerEvents: open ? null : 'none',
+        opacity: open ? '1' : '0'
+      },
+      body: {
+        width: '100%',
+        marginTop: '50vh',
+        height: '100vh'
+      },
+      action: {
+        right: 16,
+        marginTop: -28,
+        position: 'absolute',
+        transition: 'all 400ms cubic-bezier(0.4, 0, 0.2, 1)',
+        transform: outerTop < 0.99 ? 'scale(1, 1)' : 'scale(0, 0)'
+      },
+      content: {
+        height: '100%',
+        overflow: 'hidden'
+      }
+    }
+  }
+
   render () {
+    const styles = this.getStyles()
+
     return (
       <Scrollbars
         autoHide
         onUpdate={(values) => this.onOuterScroll(values)}
         style={{
           ...styles.root,
-          ...this.props.style,
-          pointerEvents: this.props.open ? null : 'none',
-          opacity: this.props.open ? '1' : '0'
+          ...this.props.style
         }}
         onTouchTap={this.props.onRequestClose}
       >
@@ -68,22 +88,16 @@ export default class ExpandableBottomSheet extends Component {
           rounded={false}
           onTouchTap={(e) => e.stopPropagation()}
         >
-          {this.props.action ? React.cloneElement(this.props.action, {
+          {this.props.action && React.cloneElement(this.props.action, {
             style: {
-              ...this.props.action.props.style,
-              right: 16,
-              marginTop: -28,
-              position: 'absolute',
-              transition: 'all 400ms cubic-bezier(0.4, 0, 0.2, 1)',
-              transform: this.state.outerTop < 0.99 ? 'scale(1, 1)' : 'scale(0, 0)'
+              ...styles.action,
+              ...this.props.actionStyle
             }
-          }) : null
-          }
+          })}
           {this.state.outerTop < 0.99 ? <div
             style={{
               ...styles.content,
-              ...this.props.contentStyle,
-              overflow: 'hidden'
+              ...this.props.contentStyle
             }}
           >
             {this.props.children}

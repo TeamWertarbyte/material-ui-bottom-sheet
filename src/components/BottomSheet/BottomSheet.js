@@ -2,25 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Paper } from 'material-ui'
 
-const styles = {
-  root: {
-    height: '100%',
-    width: '100%',
-    position: 'fixed',
-    zIndex: 1300,
-    left: 0,
-    top: 0,
-    backgroundColor: 'rgba(0,0,0,0.2)',
-    transition: 'opacity 400ms cubic-bezier(0.4, 0, 0.2, 1)'
-  },
-  body: {
-    width: '100%',
-    maxHeight: 600,
-    position: 'fixed',
-    bottom: 0
-  }
-}
-
 /**
  * Material design bottom sheet
  * @see [Bottom Sheet](https://material.io/guidelines/components/bottom-sheets.html)
@@ -30,13 +11,45 @@ export default class BottomSheet extends Component {
     super(props)
   }
 
+  getStyles () {
+    const {
+      open
+    } = this.props
+
+    return {
+      root: {
+        height: '100%',
+        width: '100%',
+        position: 'fixed',
+        zIndex: 1300,
+        left: 0,
+        top: 0,
+        backgroundColor: 'rgba(0,0,0,0.2)',
+        transition: 'opacity 400ms cubic-bezier(0.4, 0, 0.2, 1)',
+        pointerEvents: open ? null : 'none',
+        opacity: open ? '1' : '0',
+      },
+      body: {
+        width: '100%',
+        maxHeight: 600,
+        position: 'fixed',
+        bottom: 0
+      },
+      action: {
+        marginRight: 16,
+        marginTop: -28,
+        float: 'right'
+      }
+    }
+  }
+
   render () {
+    const styles = this.getStyles()
+
     return (
       <div
         style={{
           ...styles.root,
-          pointerEvents: this.props.open ? null : 'none',
-          opacity: this.props.open ? '1' : '0',
           ...this.props.style
         }}
         onTouchTap={this.props.onRequestClose}
@@ -49,15 +62,12 @@ export default class BottomSheet extends Component {
           rounded={false}
           onTouchTap={(e) => e.stopPropagation()}
         >
-          {this.props.action ? React.cloneElement(this.props.action, {
+          {this.props.action && React.cloneElement(this.props.action, {
             style: {
-              ...this.props.action.style,
-              marginRight: 16,
-              marginTop: -28,
-              float: 'right', ...this.props.actionStyle
+              ...styles.action,
+              ...this.props.actionStyle
             }
-          }) : null
-          }
+          })}
           <div style={this.props.contentStyle}>
             {this.props.children}
           </div>
