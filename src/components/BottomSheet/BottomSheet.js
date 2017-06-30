@@ -21,6 +21,10 @@ const styles = {
   }
 }
 
+/**
+ * Material design bottom sheet
+ * @see [Bottom Sheet](https://material.io/guidelines/components/bottom-sheets.html)
+ */
 export default class BottomSheet extends Component {
   constructor (props) {
     super(props)
@@ -63,17 +67,19 @@ export default class BottomSheet extends Component {
   }
 }
 
-BottomSheet.defaultProps = {
-  onRequestClose: () => {
-  }
-}
-
 BottomSheet.propTypes = {
+  /** Adds an action element at the top right corner. */
   action: PropTypes.object,
+  /** Override the inline-styles of the action element. */
   actionStyle: PropTypes.object,
+  /** Override the inline-styles of the body element. */
   bodyStyle: PropTypes.object,
+  /** Override the inline-styles of the content element. */
   contentStyle: PropTypes.object,
+  /** Fired when the the background is clicked. */
   onRequestClose: PropTypes.func.isRequired,
+  /** Controls whether the bottom sheet is opened or not. */
   open: PropTypes.bool.isRequired,
-  style: PropTypes.object
+  /** Override the inline-styles of the root element. */
+  style: PropTypes.object,
 }
