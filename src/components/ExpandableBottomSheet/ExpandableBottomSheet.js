@@ -49,7 +49,7 @@ export default class ExpandableBottomSheet extends Component {
       },
       body: {
         width: '100%',
-        marginTop: '50vh',
+        marginTop: open ? '50vh' : '100vh',
         height: '100vh'
       },
       action: {
