@@ -7,10 +7,6 @@ import { Paper } from 'material-ui'
  * @see [Bottom Sheet](https://material.io/guidelines/components/bottom-sheets.html)
  */
 export default class BottomSheet extends Component {
-  constructor (props) {
-    super(props)
-  }
-
   getStyles () {
     const {
       open
@@ -44,6 +40,11 @@ export default class BottomSheet extends Component {
     }
   }
 
+  handleClickOverlay = (e) => {
+    e.preventDefault()
+    this.props.onRequestClose()
+  }
+
   render () {
     const styles = this.getStyles()
 
@@ -53,7 +54,7 @@ export default class BottomSheet extends Component {
           ...styles.root,
           ...this.props.style
         }}
-        onTouchTap={this.props.onRequestClose}
+        onTouchTap={this.handleClickOverlay}
       >
         <Paper
           style={{

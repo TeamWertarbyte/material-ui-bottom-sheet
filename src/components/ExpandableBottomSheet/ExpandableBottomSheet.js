@@ -25,6 +25,11 @@ export default class ExpandableBottomSheet extends Component {
     }
   }
 
+  handleClickOverlay = (e) => {
+    e.preventDefault()
+    this.props.onRequestClose()
+  }
+
   getStyles () {
     const {
       open
@@ -77,7 +82,7 @@ export default class ExpandableBottomSheet extends Component {
           ...styles.root,
           ...this.props.style
         }}
-        onTouchTap={this.props.onRequestClose}
+        onTouchTap={this.handleClickOverlay}
       >
         <Paper
           zDepth={5}
