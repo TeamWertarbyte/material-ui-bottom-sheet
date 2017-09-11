@@ -82,7 +82,7 @@ export default class ExpandableBottomSheet extends Component {
           ...styles.root,
           ...this.props.style
         }}
-        onTouchTap={this.handleClickOverlay}
+        onClick={this.handleClickOverlay}
       >
         <Paper
           zDepth={5}
@@ -91,7 +91,7 @@ export default class ExpandableBottomSheet extends Component {
             ...this.props.bodyStyle
           }}
           rounded={false}
-          onTouchTap={(e) => e.stopPropagation()}
+          onClick={(e) => e.stopPropagation()}
         >
           {this.props.action && React.cloneElement(this.props.action, {
             style: {

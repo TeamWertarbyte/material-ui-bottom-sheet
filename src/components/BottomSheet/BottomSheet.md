@@ -2,7 +2,7 @@ Normal:
 ```
 const { RaisedButton, Subheader, List, ListItem } = require('material-ui');
     <div>
-    <RaisedButton label="Open BottomSheet" onTouchTap={() => setState({isOpen: true})} />
+    <RaisedButton label="Open BottomSheet" onClick={() => setState({isOpen: true})} />
       <BottomSheet
         onRequestClose={() => setState({isOpen: false})}
         open={state.isOpen}
@@ -22,7 +22,7 @@ Actions:
 const { FloatingActionButton, Divider, RaisedButton, List, ListItem } = require('material-ui');
 const { DeviceAccessTime, MapsDirectionsCar, MapsPlace, MapsLocalPhone } = require('material-ui/svg-icons');
     <div>
-    <RaisedButton label="Open BottomSheet" onTouchTap={() => setState({isOpen: true})} />
+    <RaisedButton label="Open BottomSheet" onClick={() => setState({isOpen: true})} />
       <BottomSheet
         action={
           <FloatingActionButton>
