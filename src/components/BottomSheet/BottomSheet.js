@@ -19,6 +19,7 @@ export default class BottomSheet extends Component {
         position: 'fixed',
         zIndex: 1300,
         left: 0,
+        right: 0,
         top: 0,
         backgroundColor: 'rgba(0,0,0,0.2)',
         transition: 'opacity 400ms cubic-bezier(0.4, 0, 0.2, 1)',
