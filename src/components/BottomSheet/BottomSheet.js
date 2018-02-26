@@ -33,9 +33,9 @@ export default class BottomSheet extends Component {
         transition: 'max-height 400ms cubic-bezier(0.4, 0, 0.2, 1)'
       },
       action: {
-        marginRight: 16,
-        marginTop: -28,
-        float: 'right'
+        right: 16,
+        top: -28,
+        position: 'absolute',
       }
     }
   }
@@ -64,15 +64,15 @@ export default class BottomSheet extends Component {
           rounded={false}
           onClick={(e) => e.stopPropagation()}
         >
+          <div style={this.props.contentStyle}>
+            {this.props.children}
+          </div>
           {this.props.action && React.cloneElement(this.props.action, {
             style: {
               ...styles.action,
               ...this.props.actionStyle
             }
           })}
-          <div style={this.props.contentStyle}>
-            {this.props.children}
-          </div>
         </Paper>
       </div>
     )
