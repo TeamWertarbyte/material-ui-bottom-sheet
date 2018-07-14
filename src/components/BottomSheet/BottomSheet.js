@@ -48,9 +48,11 @@ export default class BottomSheet extends Component {
 
   render () {
     const styles = this.getStyles()
+    const { className } = this.props
 
     return (
       <div
+        className={className}
         style={{
           ...styles.root,
           ...this.props.style

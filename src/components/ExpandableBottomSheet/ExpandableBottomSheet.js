@@ -73,6 +73,7 @@ export default class ExpandableBottomSheet extends Component {
 
   render () {
     const styles = this.getStyles()
+    const { className } = this.props
 
     return (
       <Scrollbars
@@ -85,6 +86,7 @@ export default class ExpandableBottomSheet extends Component {
         onClick={this.handleClickOverlay}
       >
         <Paper
+          className={className}
           zDepth={5}
           style={{
             ...styles.body,
